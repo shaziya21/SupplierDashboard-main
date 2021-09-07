@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>View Approved Stock</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}"/>
+        <style>
+            body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.dnnsoftware.com/Portals/0/Images/hero-background-4-5.jpg?ver=2017-08-17-191010-163');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative
+            }
+            button {
+            padding: 10px;
+            display:block;
+            float:right;
+            background-color:#02225c;
+            color: white;
+            text-align:center;
+            }
+            button:hover {
+            background-color: #254b85;
+            }
+            table,th,td {
+            border: 1;
+            border-bottom: 1px solid #faf9f9;
+            border-collapse: collapse;
+            text-align:left;
+            padding: 10px;
+            margin-bottom: 40px;
+            font-size: 0.9em;
+            background-color: rgb(244, 247, 248);
+            }
+        </style>
+    </head>
+    <body>
+        <a href="/back"><button>BACK</button></a>
+        <center><h2>View Stock Status</h2></center>
+        <br><br>
+        <center><p>Status - Entered (Supplier Not seen the stock)</p></center><br>
+        <center><p>Status - Approved (Supplier Approved the stock)</p></center><br>
+        <center><p>Status - Not Approved (Supplier Not Approved the stock)</p></center><br><br>
+        <center>
+            <table>
+                <tr>
+                    <th><b>Product</b></th>
+                    <th><b>Quantity</b></th>
+                    <th><b>Status</b></th>
+                    <th><b>No of days to deliver</b></th>
+                    <th><b>Reason</b></th>
+                </tr>
+                {%for row in tbl%}
+                   <tr>
+                      {%for col in row%}
+                        <td>{{col}}</td>
+                      {%endfor%}
+                      
+                   </tr>
+                {%endfor%}
+            </table>
+         </center>
+    </body>
+</html>

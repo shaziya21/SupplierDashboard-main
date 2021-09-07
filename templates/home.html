@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Supplier Dashboard</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/home.css') }}"/>
+
+        <style>
+            body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.dnnsoftware.com/Portals/0/Images/hero-background-4-5.jpg?ver=2017-08-17-191010-163');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative
+            }
+        </style>
+    </head>
+    <body>
+
+        <br>
+        <h1><center>SUPPLIER DASHBOARD</center></h1>
+        <br><br><br><br><br><br>
+        <form method="POST" action="/input">
+            <center>
+            <label style="font-size: medium;" for="cut"><b>SELECT WHO YOU ARE</b> </label>
+                <br><br>
+                <select name="name">
+                    <option value="SUPPLIER">SUPPLIER</option>
+                    <option value="COMPANY">COMPANY</option>
+                    <option value="INVENTORY">INVENTORY</option>
+                </select>
+            <br><br><br>
+            <input type="submit" value="SUBMIT">
+            </center>
+        </form>
+    </body>
+</html>

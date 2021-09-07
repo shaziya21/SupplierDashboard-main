@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMPANY INDEX</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+
+<body style="background-image: url({{ url_for('static', filename='pics3.jpg')}})">
+
+    <input type="checkbox" id="close">
+
+    <label for="close">
+        <span id="open-btn" class="fa fa-bars"></span>
+    </label>
+
+    <nav>
+        <a href="#" class="brand">Index</a>
+        <label for="close">
+            <span id="close-btn" class="fas fa-times"></span>
+        </label>
+
+        <ul>
+            <form id="form_1" action="/commain" method="POST">
+                <input id="send_val" value="" name="findItems" type="hidden" />
+                <li id="id_add_stock" class="list-item"><i class="nav-link fas fa-cart-plus fa-fw"></i><a href="#">Add
+                        Stock</a></li>
+                <li id="id_view_stock" class="list-item"><i class="nav-link fas fa-arrow-right fa-fw"></i><a
+                        href="#">View Stock</a></li>
+                <li id="id_view_approved" class="list-item"><i class="nav-link fas fa-check-double fa-fw"></i><a
+                        href="#">View Approved Stock</a></li>
+                <li id="id_view_prev" class="list-item"><i class="nav-link fas fa-arrow-left fa-fw"></i><a
+                        href="#">View Previous Stock</a></li>
+                <li id="id_view_inventory" class="list-item"><i class="nav-link fas fa-chevron-right fa-fw"></i><a
+                        href="#">View Inventory</a></li>
+
+                <script>
+                    document.getElementById('id_add_stock').onclick = function sup_click() {
+                        document.getElementById('send_val').value = 1;
+                        document.getElementById('form_1').submit();
+                    }
+
+                    document.getElementById('id_view_stock').onclick = function company_click() {
+                        document.getElementById('send_val').value = 2;
+                        document.getElementById('form_1').submit();
+                    }
+                    document.getElementById('id_view_prev').onclick = function inventory_click() {
+                        document.getElementById('send_val').value = 4;
+                        document.getElementById('form_1').submit();
+                    }
+                    document.getElementById('id_view_inventory').onclick = function inventory_click() {
+                        document.getElementById('send_val').value = 5;
+                        document.getElementById('form_1').submit();
+                    }
+                    document.getElementById('id_view_approved').onclick = function inventory_click() {
+                        document.getElementById('send_val').value = 3;
+                        document.getElementById('form_1').submit();
+                    }
+
+
+
+                </script>
+
+            </form>
+            <form id="form_2" action="/dv" method="POST"></form>
+            </form>
+
+            <form id="form_3" action="/invoice" method="POST">
+            </form>
+
+                <li id="id_visuals" class="list-item"><i class="nav-link fas fa-eye fa-fw"></i><a href="/dv">Visuals</a>
+                </li>
+
+                <script>
+                    document.getElementById('id_visuals').onclick = function inventory_click() {
+
+                        document.getElementById('form_2').submit();
+                    }
+                </script>
+
+                <li id="id_invoice" class="list-item"><i class="nav-link fas fa-chart-bar fa-fw"></i><a href="/invoice">Invoice</a></li>
+                <script>
+                    document.getElementById('id_invoice').onclick = function inventory_click() {
+
+                        document.getElementById('form_3').submit();
+                    }
+                </script>
+
+
+
+            <li class="list-item"><i class="nav-link fas fa-lock fa-fw"></i><a href="/cpass">Change Password</a></li>
+            <li class="list-item"><i class="nav-link fas fa-sign-out-alt fa-fw"></i><a href="/companyindex">Logout</a>
+            </li>
+
+
+        </ul>
+    </nav>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/js/all.min.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <html>
+    <head>
+        <title>Company Login</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}"/>
+        <style>
+            body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.dnnsoftware.com/Portals/0/Images/hero-background-4-5.jpg?ver=2017-08-17-191010-163');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative
+            }
+            button {
+            padding: 10px;
+            display:block;
+            float:right;
+            background-color:#02225c;
+            color: white;
+            text-align:center;
+            }
+            button:hover {
+            background-color: #254b85;
+            }
+
+</style>
+        </style>
+    </head>
+    <body>
+        <a href="/companyindex"><button>LOGOUT</button></a>
+        <a href="/cpass"><button>CHANGE PASSWORD</button></a>
+        <br><br>
+        <h3><center>{{ msg }}</center></h3>
+        <br><br>
+        <form method="POST" action="\commain">
+            <center>
+            <label style="font-size: medium;" for="name"><b>SELECT WHO YOU ARE</b> </label>
+                <br><br>
+                <select name="name">
+                    <option value="1">ADD STOCK</option>
+                    <option value="2">VIEW STOCK</option>
+                    <option value="3">VIEW APPROVED STOCK</option>
+                    <option value="4">VIEW PREVIOUS STOCKS</option>
+                    <option value="5">VIEW INVENTORY</option>
+                </select>
+            <br><br><br>
+            <input type="submit" value="SUBMIT">
+            </center>
+        </form>
+        <br><br>
+        <form action="/dv" method="POST">
+            <center>
+                <input type="submit" value="CLICK HERE TO SEE VISUALS">
+            </center>
+        </form>
+        <br><br>
+        <form action="/invoice" method="POST">
+            <center>
+                <input type="submit" value="CLICK HERE TO GET INVOICE">
+            </center>
+        </form>
+    </body>
+</html> -->

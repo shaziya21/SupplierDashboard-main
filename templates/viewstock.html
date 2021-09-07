@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Supplier Login</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}"/>
+        <style>
+            body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.dnnsoftware.com/Portals/0/Images/hero-background-4-5.jpg?ver=2017-08-17-191010-163');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative
+            }
+            button {
+            padding: 10px;
+            display:block;
+            float:right;
+            background-color:#02225c;
+            color: white;
+            text-align:center;
+            }
+            button:hover {
+            background-color: #254b85;
+            }
+            table.dataframe, .dataframe th, .dataframe td {
+            border: 1;
+            border-bottom: 1px solid #faf9f9;
+            border-collapse: collapse;
+            text-align:left;
+            padding: 10px;
+            margin-bottom: 40px;
+            font-size: 0.9em;
+            background-color: rgb(244, 247, 248);
+            }
+        </style>
+    </head>
+    <body>
+        <a href="/back"><button>BACK</button></a>
+        <br><br>
+        <br>
+        <div class=page>
+            <h1><center>AVAILABLE STOCKS</center></h1>
+             <center>{{tables|safe }}</center>
+        </div>
+    </body>
+</html>

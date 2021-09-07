@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title>View Approved Stock</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}"/>
+        <style>
+            body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.dnnsoftware.com/Portals/0/Images/hero-background-4-5.jpg?ver=2017-08-17-191010-163');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative
+            }
+            button {
+            padding: 10px;
+            display:block;
+            float:right;
+            background-color:#02225c;
+            color: white;
+            text-align:center;
+            }
+            button:hover {
+            background-color: #254b85;
+            }
+            input[type=select] {
+            width: 15%;
+            background-color:#02225c;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            }
+            table,th,td {
+            border: 1;
+            border-bottom: 1px solid #faf9f9;
+            border-collapse: collapse;
+            text-align:left;
+            padding: 10px;
+            margin-bottom: 40px;
+            font-size: 0.9em;
+            background-color: rgb(244, 247, 248);
+            }
+        </style>
+    </head>
+    <body>
+        <a href="/supplier_back"><button>BACK</button></a>
+        <br>
+        <br><br>
+        <center><h1>View Stock Status</h1></center>
+        <br><br>
+
+        <center>
+            <form action="/sa" method="POST">
+            <table>
+                <tr>
+                    <th><b>Product</b></th>
+                    <th><b>quantity</b></th>
+                    <th><b>Click checkbox to approve</b></th>
+                    <th><b>No of days to deliver</b></th>
+                    <th><b>Reason</b></th>
+                </tr>
+                {%for row in tbl%}
+                   <tr>
+                      <td>{{ row.product }}</td>
+                      <td>{{ row.quantity }}</td>
+                      <td><input type="checkbox" name="mycheckbox" value="{{ row._id }}"></td>
+                      <td><input type="number" id="days" name="days"></td>
+                      <td><select name="reason" id="reason">
+                        <option value="Available">Available</option>
+                        <option value="Out of stock">Out of stock</option>
+                        <option value="No Market Demand">No market Demand</option>
+                        </select>
+                      </td>
+                   </tr>
+                {%endfor%}
+            </table>
+            <br><br>
+            <input type="submit">
+            </form>
+         </center>
+    </body>
+</html>

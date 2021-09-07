@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Supplier Login</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}"/>
+        <style>
+            body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.dnnsoftware.com/Portals/0/Images/hero-background-4-5.jpg?ver=2017-08-17-191010-163');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative
+            }
+            button {
+            padding: 10px;
+            display:block;
+            float:right;
+            background-color:#02225c;
+            color: white;
+            text-align:center;
+            }
+            button:hover {
+            background-color: #254b85;
+            }
+            
+
+        </style>
+    </head>
+    <body>
+        <br>
+        <center><h1>DASHBOARD</h1></center>
+        <br><br>
+        <div>
+            <center><embed src={{   ch|safe   }} /></center>
+        </div>
+    </body>
+</html>

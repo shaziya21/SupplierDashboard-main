@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Add Inventory</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 mx-auto">
+                <div class="card" style="box-shadow: 0 0 25px lightgrey;">
+                    <div class="card-header">
+                        <h4>Remove Stocks from Inventory</h4>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <!-- <h5>Make A Order List</h5> -->
+                            <table style="width: 800px;">
+                                <thead>
+                                    <tr>
+
+                                        <th style="text-align:center">Items List</th>
+                                        <!-- <th style="text-align:center">Total Quantity</th> -->
+                                        <!-- <th style="text-align:center">Quantity</th> -->
+                                        <!-- <th style="text-align:center">Price</th> -->
+                                        <!-- <th>Total</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody id="add_item">
+                                    <tr>
+
+                                        <!-- <td><b id="number">1</b></td> -->
+                                        <td>
+                                            <select id="selected_item_name" name="inames[]" required class="form-control form-control-sm">
+                                                {% for d in params %}
+                                                <option>{{d["Item"]}}</option>
+                                                {%endfor%}
+                                            </select>
+                                        </td>
+
+
+                                        <!-- <td><input name="tqty[]" type="text" readonly class="form-control form-control-sm"></td> -->
+                                        <!-- <td><input name="qty[]" type="text" class="form-control form-control-sm" required></td> -->
+                                        <!-- <td><input name="price[]" type="text" class="form-control form-control-sm" readonly></td> -->
+                                        <!-- <td>Rs.120</td> -->
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!--table ends-->
+                            <div style="padding: 10px;">
+                                <!-- <button id="add" style="width: 150px;" class="btn btn-success">Add</button> -->
+                                <p onclick=rem_fun id="remove" style="width: 150px;"
+                                    class="btn btn-danger">Remove</p>
+                                <script>
+                                    document.getElementById("remove").onclick= function rem_fun() {
+                                        var xhr = new XMLHttpRequest();
+                                        xhr.open("POST", "/remove_inv_items", true);
+                                        xhr.setRequestHeader('Content-Type', 'application/json');
+                                        let itm = document.getElementById("selected_item_name").value;
+
+                                        xhr.send(JSON.stringify({
+
+                                            Item: itm
+
+                                        }));
+                                        window.location.href = '/remove_inventory';
+                                    }
+                                </script>
+                            </div>
+                    </div>
+                    <!--card ends-->
+                </div>
+                <!--order card ends-->
+                <br><br>
+                <!-- <div>
+                    <input action="/remove_inventory" type="submit" id="submit" style="width: 150px;" class="btn btn-info" value="Submit">
+                </div> -->
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html> 

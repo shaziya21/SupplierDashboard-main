@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Add Stock</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}"/>
+        <style>
+            body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.dnnsoftware.com/Portals/0/Images/hero-background-4-5.jpg?ver=2017-08-17-191010-163');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative
+            }
+            button {
+            padding: 10px;
+            display:block;
+            float:right;
+            background-color:#02225c;
+            color: white;
+            text-align:center;
+            }
+            button:hover {
+            background-color: #254b85;
+            }
+            table,th,td {
+            border: 1;
+            border-bottom: 1px solid #faf9f9;
+            border-collapse: collapse;
+            text-align:left;
+            padding: 10px;
+            margin-bottom: 40px;
+            font-size: 0.9em;
+            background-color: rgb(244, 247, 248);
+            }
+        </style>
+    </head>
+    <body>
+        <a href="/back"><button>BACK</button></a>
+        <br>
+        <h1><center>PRICE EDIT</center></h1>
+        <br><br>
+        <form method="POST" action="/price">
+            <center>
+                <label for="name"><b>SELECT PRODUCT</b> </label><br>
+                <br><br>
+                <select name="name">
+                    {% for x in li %}
+                         <option value="{{ x.ITEM }}" >{{ x.ITEM }}</option>
+                    {% endfor %}
+                </select><br><br>
+                <label for="price"><b> PRICE </b> </label><br>
+                <input id = "price" type="number" name="price" placeholder="Enter Price" required><br><br>
+                <input type="submit" value="CHANGE PRICE">
+            </center>
+        </form>
+        <br><br>
+        <div><center>{{ msg }}</center></div>
+    </body>
+</html>

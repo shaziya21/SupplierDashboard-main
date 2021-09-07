@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Stocks</title>
+</head>
+<body>
+
+    <style>
+        #inventory_tbl {
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+
+          width: 100%;
+        }
+
+        #inventory_tbl td, #inventory_tbl th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+
+        #inventory_tbl tr:nth-child(even){background-color: #f2f2f2;}
+
+        #inventory_tbl tr:hover {background-color: #ddd;}
+
+        #inventory_tbl th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #04AA6D;
+          color: white;
+        }
+        </style>
+
+
+
+
+
+    <div >
+        <h1>Stocks in Inventory</h1>
+    </div>
+    <div >
+
+
+
+        <table id="inventory_tbl">
+            <tr>
+                <th>Items</th>
+                <th>Quantity</th>
+                <th>Unit</th>
+            </tr>
+            {%for dicts in params%}
+            {%if dicts["Quantity"]>=dicts["Treshold"]%}
+            <tr>
+
+                <td>{{dicts["Item"]}}</td>
+                <td>{{dicts["Quantity"]}}</td>
+                <td>{{dicts["Unit"]}}</td>
+
+
+            </tr>
+            {%else %}
+            <tr style="background-color: red;">
+
+                <td>{{dicts["Item"]}}</td>
+                <td>{{dicts["Quantity"]}}</td>
+                <td>{{dicts["Unit"]}}</td>
+
+
+            </tr>
+
+            {%endif %}
+
+            {%endfor%}
+        </table>
+    </div>
+
+</body>
+</html>
